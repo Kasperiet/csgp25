@@ -18,7 +18,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '9.0.202'  # Erstatt med din .NET-versjon
+        dotnet-version: '9.0.202'  # Erstatt med din .NET-versjoner
 
     - name: Azure Login
       uses: azure/login@v1
