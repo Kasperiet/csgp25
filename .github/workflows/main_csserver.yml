@@ -20,14 +20,15 @@ jobs:
       with:
         dotnet-version: '9.0.202'  # Erstatt med din .NET-versjoner
 
+    # Steg 3: Logg på Azure med Service Principal
     - name: Azure Login
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  # Legg til subscription-id her
-        auth-type: IDENTITY  # Bruker Managed Identity
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}  # Legg til Service Principal Client ID i GitHub Secrets
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}  # Legg til Service Principal Client Secret i GitHub Secrets
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}  # Legg til Azure Tenant ID i GitHub Secrets
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  # Legg til Azure Subscription ID i GitHub Secrets
+        auth-type: SERVICE_PRINCIPAL  # Sørg for at dette er riktig (SERVICE_PRINCIPAL)
     
     - name: Build and publish .NET app
       run: |
