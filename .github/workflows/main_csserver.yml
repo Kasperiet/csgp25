@@ -1,13 +1,12 @@
-name: Deploy to Azure
+name: Azure .NET Deployment
 
 on:
   push:
     branches:
-      - main   # Dette betyr at deploy skjer når du pusher til 'main'-grenen
-  workflow_dispatch:  # Legg til denne linjen for manuell utløsing fra GitHub Actions-grensesnittet
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,23 +14,25 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '9.0'
+        dotnet-version: '9.0.202'  # Erstatt med din .NET-versjon
 
-    - name: Restore dependencies
-      run: dotnet restore
-
-    - name: Build the project
-      run: dotnet build --configuration Release
-
-    - name: Publish the project
-      run: dotnet publish --configuration Release --output ./publish
-
-    - name: Deploy to Azure Web App
-      uses: Azure/webapps-deploy@v2
+    - name: Azure Login
+      uses: azure/login@v1
       with:
-        app-name: csserver  # Bytt ut med navnet på appen din i Azure
-        slot-name: production  # Hvis du bruker slots, kan du endre dette
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  # Legg til Azure publish profile i secrets
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    
+    - name: Build and publish .NET app
+      run: |
+        dotnet build
+        dotnet publish -c Release -o ./publish
+
+    - name: Deploy to Azure
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: csserver
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
         package: ./publish
