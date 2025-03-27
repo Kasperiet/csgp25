@@ -7,17 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Last inn konfigurasjonen fra appsettings.json
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-// Legg til DbContext for SQL Server og aktiver retry på feil
+// Legg til DbContext for SQL Server og aktiver retry pï¿½ feil
 builder.Services.AddDbContext<SmsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SmsDbConnection"), sqlOptions =>
         sqlOptions.EnableRetryOnFailure(
-            maxRetryCount: 3, // Maks antall forsøk
-            maxRetryDelay: TimeSpan.FromSeconds(5), // Ventetid mellom hvert forsøk
-            errorNumbersToAdd: null) // Velg feilnummer for retry, eller la det være null for å inkludere alle
+            maxRetryCount: 3, // Maks antall forsï¿½k
+            maxRetryDelay: TimeSpan.FromSeconds(5), // Ventetid mellom hvert forsï¿½k
+            errorNumbersToAdd: null) // Velg feilnummer for retry, eller la det vï¿½re null for ï¿½ inkludere alle
     )
 );
 
-// Legg til andre nødvendige tjenester
+// Legg til andre nï¿½dvendige tjenesters
 builder.Services.AddControllers();
 
 var app = builder.Build();
