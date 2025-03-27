@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TwilioSmsReceiver")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab0c9390ae4658e0c9e4e2159daa5f66472b631e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b7c74b3e00218548724f90dab41dd863828d052")]
 [assembly: System.Reflection.AssemblyProductAttribute("TwilioSmsReceiver")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TwilioSmsReceiver")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

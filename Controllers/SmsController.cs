@@ -3,7 +3,6 @@ using TwilioSmsReceiver.Data;
 using TwilioSmsReceiver.Models;
 using Twilio;
 using Twilio.TwiML;
-using Microsoft.Extensions.Options;
 
 namespace TwilioSmsReceiver.Controllers
 {
@@ -12,13 +11,18 @@ namespace TwilioSmsReceiver.Controllers
     public class SmsController : ControllerBase
     {
         private readonly SmsDbContext _context;
-        private readonly TwilioSettings _twilioSettings;
 
-        public SmsController(SmsDbContext context, IOptions<TwilioSettings> twilioSettings)
+        public SmsController(SmsDbContext context)
         {
             _context = context;
-            _twilioSettings = twilioSettings.Value;
-            TwilioClient.Init(_twilioSettings.AccountSid, _twilioSettings.AuthToken);
+
+            // Hardkode Twilio-konfigurasjonen her
+            string accountSid = "AC493608a2610bf9b0c3ad3c99a1807075"; 
+            string authToken = "ab09bf575ebe8a11c6a0081e67defce9"; 
+            string twilioPhoneNumber = "+19205364128"; // Denne kan brukes til å sende SMS også, hvis ønskelig
+
+            // Initialiser Twilio-klienten med hardkodede verdier
+            TwilioClient.Init(accountSid, authToken);
         }
 
         [HttpPost]

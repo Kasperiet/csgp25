@@ -4,6 +4,9 @@ using TwilioSmsReceiver.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Last inn konfigurasjonen fra appsettings.json
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
 // Legg til DbContext for SQL Server og aktiver retry på feil
 builder.Services.AddDbContext<SmsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SmsDbConnection"), sqlOptions =>

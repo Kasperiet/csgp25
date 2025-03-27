@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\PP-Sim\\gp25\\TwilioSmsReceiver\\TwilioSmsReceiver.csproj": {}
+    "C:\\Users\\PC\\Desktop\\csgp25\\csgp25\\TwilioSmsReceiver.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\PP-Sim\\gp25\\TwilioSmsReceiver\\TwilioSmsReceiver.csproj": {
+    "C:\\Users\\PC\\Desktop\\csgp25\\csgp25\\TwilioSmsReceiver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\PP-Sim\\gp25\\TwilioSmsReceiver\\TwilioSmsReceiver.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\csgp25\\csgp25\\TwilioSmsReceiver.csproj",
         "projectName": "TwilioSmsReceiver",
-        "projectPath": "C:\\Users\\PC\\Desktop\\PP-Sim\\gp25\\TwilioSmsReceiver\\TwilioSmsReceiver.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\csgp25\\csgp25\\TwilioSmsReceiver.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\PP-Sim\\gp25\\TwilioSmsReceiver\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\csgp25\\csgp25\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
