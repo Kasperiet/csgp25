@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "1I/rc/Bu0Mes5wWJqAN0qWG+RlDyRoTefkBewjRTsaw=",
+  "Source": "TwilioSmsReceiver",
+  "BasePath": "_content/TwilioSmsReceiver",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

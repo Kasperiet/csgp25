@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\TwilioSmsReceiver.props" />
+</Project>
