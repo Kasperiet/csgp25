@@ -1,0 +1,37 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main   # Dette betyr at deploy skjer når du pusher til 'main'-grenen
+  workflow_dispatch:  # Legg til denne linjen for manuell utløsing fra GitHub Actions-grensesnittet
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.0'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build the project
+      run: dotnet build --configuration Release
+
+    - name: Publish the project
+      run: dotnet publish --configuration Release --output ./publish
+
+    - name: Deploy to Azure Web App
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: your-app-name  # Bytt ut med navnet på appen din i Azure
+        slot-name: production  # Hvis du bruker slots, kan du endre dette
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  # Legg til Azure publish profile i secrets
+        package: ./publish
