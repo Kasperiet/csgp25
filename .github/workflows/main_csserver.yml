@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Legg til denne linjen for å gi skrive-tillatelser til ID-token
 
     steps:
     - name: Checkout code
@@ -25,6 +27,7 @@ jobs:
         client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+        auth-type: servicePrincipal
     
     - name: Build and publish .NET app
       run: |
