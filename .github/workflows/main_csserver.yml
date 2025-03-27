@@ -28,7 +28,7 @@ jobs:
         client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}  # Legg til Service Principal Client Secret i GitHub Secrets
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}  # Legg til Azure Tenant ID i GitHub Secrets
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  # Legg til Azure Subscription ID i GitHub Secrets
-        auth-type: SERVICE_PRINCIPAL  # Sørg for at dette er riktig (SERVICE_PRINCIPAL)
+        auth-type: SERVICE_PRINCIPAL  # Sørg for at dette er riktig (SERVICE_PRINCIPAL)a
     
     - name: Build and publish .NET app
       run: |
